@@ -1,0 +1,6 @@
+
+config BR2_PACKAGE_LDD
+	bool "ldd modules"
+	depends on BR2_LINUX_KERNEL
+	help
+	  Includes the ldd package from assignment 7.

@@ -1,5 +1,0 @@
-
-config BR2_PACKAGE_LDD3_MODULES
-	bool "ldd3 modules"
-	help
-	  Includes the ldd package from assignment 7.

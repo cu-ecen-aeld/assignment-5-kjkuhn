@@ -1,0 +1,41 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          S98lddmodules
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Load/unload custom modules
+# Description:       Loads scull, faulty drivers on startup and unloads on shutdown.
+#                    Loads hello module on startup and removes on shutdown.
+### END INIT INFO
+
+case "$1" in
+    start)
+        # Load scull driver
+        /path/to/scull_load 
+
+        # Load faulty driver
+        /path/to/module_load 
+
+        # Load hello module
+        modprobe hello
+        ;;
+    stop)
+        # Unload scull driver
+        /path/to/scull_unload 
+
+        # Unload faulty driver
+        /path/to/module_unload 
+
+        # Remove hello module
+        rmmod hello
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+        ;;
+esac
+
+exit 0
